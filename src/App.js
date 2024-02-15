@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import menuList from './Menu';
+import BoxMenu from './Box';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+  const rows = menuList.map((x) => {
+    //load the data
+    return <BoxMenu
+          key={x.id}
+          type-={x.type}
+          name={x.name}
+          description={x.description}
+          src = {x.picture}
+    
+    />
+  }
   );
+
+
+  return (
+    <div className='App'>
+      <h1 id = "title">โหวตอาหาร</h1>
+      {rows}
+    </div>
+    
+  )
 }
 
 export default App;
